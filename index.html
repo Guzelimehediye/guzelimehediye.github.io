@@ -54,6 +54,12 @@ button:hover {
     display: none;
 }
 
+/* Video */
+#videoContainer iframe {
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
 /* Kalpler */
 .heart {
     position: absolute;
@@ -84,21 +90,33 @@ button:hover {
             Sen sadece sevgilim değil, en iyi dostumsun  
             İyi ki varsın… iyi ki benimlesin yavrummmm ❤️
         </p>
-        <button onclick="playMusic()">Müziği Aç 🎵</button>
+
+        <button onclick="playVideo()">Videoyu Aç 🎬</button>
+
+        <!-- VIDEO ALANI -->
+        <div id="videoContainer" class="hidden">
+            <iframe id="ytVideo" width="300" height="170"
+                src=""
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+
     </div>
 </div>
-
-<audio id="music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
 
 <script>
 function showMessage() {
     document.getElementById("surprise").classList.remove("hidden");
 }
 
-function playMusic() {
-    document.getElementById("music").play();
+function playVideo() {
+    const video = document.getElementById("ytVideo");
+    const container = document.getElementById("videoContainer");
+
+    video.src = "https://www.youtube.com/embed/QhwRyFdBN8Q?autoplay=1";
+    container.classList.remove("hidden");
 }
 
 // Kalp üretici
